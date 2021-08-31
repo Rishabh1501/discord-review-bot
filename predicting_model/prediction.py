@@ -49,8 +49,13 @@ class PredictAPI:
     Return: None
     """
     
-    def __init__(self):
+    def __init__(self, prediction_folder_path="Prediction_Data", training_folder_path="Training_Data"):
+        self.prediction_folder_path = prediction_folder_path
+        self.training_folder_path = training_folder_path
         self.cleaner = Cleaner()
+
+        if prediction_folder_path not in os.listdir():
+            os.mkdir(prediction_folder_path)
 
 
     def clean_sentence(self, sentence):
